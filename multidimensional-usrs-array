@@ -1,0 +1,18 @@
+/* codepen live example: https://codepen.io/luttringer/pen/zYpNLMx?editors=0010 */
+let bd_users = 
+[
+  ["chris","123"],
+  ["pepe","321"],
+  ["rodrigo","333"]
+];
+
+let usr_validate = false;
+
+let usr = "chris";
+let psswd = "123";
+
+bd_users.forEach((usuario) => {
+  if(usuario[0]==usr && usuario[1]==psswd){usr_validate=true}
+});
+
+(usr_validate)?document.write("credenciales validas"):document.write("credenciales invalidas");
