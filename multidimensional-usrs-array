@@ -1,4 +1,5 @@
 /* codepen live example: https://codepen.io/luttringer/pen/zYpNLMx?editors=0010 */
+/* JavaScript*/
 let bd_users = 
 [
   ["chris","123"],
@@ -19,3 +20,5 @@ bd_users.forEach((usuario) => {
 });
 
 (usr_validate)?document.write("credenciales validas"):document.write("credenciales invalidas");
+
+</script>
