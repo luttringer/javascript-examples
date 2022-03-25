@@ -21,5 +21,3 @@ bd_users.forEach((usuario) => {
 });
 
 (usr_validate)?document.write("credenciales validas"):document.write("credenciales invalidas");
-
-</script>
