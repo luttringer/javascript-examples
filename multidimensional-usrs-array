@@ -1,5 +1,6 @@
-/* codepen live example: https://codepen.io/luttringer/pen/zYpNLMx?editors=0010 */
-/* JavaScript*/
+**codepen live example: https://codepen.io/luttringer/pen/zYpNLMx?editors=0010**
+
+**JavaScript**
 let bd_users = 
 [
   ["chris","123"],
