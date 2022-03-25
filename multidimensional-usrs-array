@@ -6,10 +6,13 @@ let bd_users =
   ["rodrigo","333"]
 ];
 
-let usr_validate = false;
+let usr_validate = false, usr = null, psswd = null;
 
-let usr = "chris";
-let psswd = "123";
+do
+{
+  usr = "chris"; // =prompt("ingrese usuario")
+  psswd = "123"; // =prompt("ingrese contraseña")
+}while((usr==null || usr=="")&&(psswd==null || psswd==""));
 
 bd_users.forEach((usuario) => {
   if(usuario[0]==usr && usuario[1]==psswd){usr_validate=true}
