@@ -1,0 +1,122 @@
+html,body
+{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+:root
+{
+    --color-uno: #000;
+    --color-dos: #f8f4ec;
+    --color-tres: #301934;
+}
+
+.cont_estr_login
+{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(1,100vh);
+}
+
+.cont_estr_login section:nth-child(1)
+{
+    background-color: var(--color-uno);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.cont_estr_login section input, .cont_estr_login section button
+{
+    display: block;
+    margin: auto;
+    border: none;
+    border-radius: 13px;
+    margin-top: 14px;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    color: var(--color-tres);
+    background: var(--color-dos);
+}
+
+.cont_estr_login section p 
+{
+    color: var(--color-dos);
+    display: inline-flex;
+    margin: 7px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.cont_estr_login section p:hover
+{
+    transition: border ease-in-out 1s;
+    border-bottom: 1px solid var(--color-dos);
+}
+
+.cont_estr_login section button, .cont_estr_login section p, .cont_estr_login section input
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+    
+}
+
+.cont_estr_login section button
+{
+    margin-top: 40px;
+    padding: 0;
+    width: 100px;
+    height: 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cont_estr_login section button:hover
+{
+    transition: all ease 1s;
+    background-color: var(--color-tres);
+    color: var(--color-dos);
+}
+
+.cont_estr_login section video
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#mssg
+{
+    font-size: 13px;
+    background-color: transparent;
+    color: var(--color-dos);
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: opacity ease 1s;
+    opacity: 0;
+    font-family: monospace;
+}
+
+@media (max-width:768px)
+{
+    .cont_estr_login{grid-template-columns: 100%}
+
+    .cont_estr_login section:nth-child(2) video
+    {
+        position: absolute;
+        top: 0;
+        z-index:-1;
+    }
+
+    .cont_estr_login section:nth-child(1){background: rgba(0,0,0,0.5)}
+}
+
+
