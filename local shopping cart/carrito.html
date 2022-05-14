@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carrito ejemplo</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    lista_productos_carrito = new Map(JSON.parse(localStorage.misProductos));       //apenas se carega el sitio, creo una variable de tipo map con los datos de la cookie
+
+    lista_productos_carrito.forEach(element => {        //recorremos todo la variable local map con un for each y extraemos sus valores
+        document.write(element);
+        document.write("<br>");
+    });
+</script>

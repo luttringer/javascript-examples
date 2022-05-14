@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="galeria_productos">
+        <section id="pr_1" data-nombre="remera" data-marca="nike" data-precio="50" data-codigo="A001" onclick="compra_producto(1)"><h1>REMERA NIKE</h1></section>
+        <section id="pr_2" data-nombre="pantalon" data-marca="adidas" data-precio="70" data-codigo="A002" onclick="compra_producto(2)"><h1>PANTALON ADIDAS</h1></section>
+        <section id="pr_3" data-nombre="short" data-marca="camarao" data-precio="20" data-codigo="A003" onclick="compra_producto(3)"><h1>SHORT CAMARAO</h1></section>
+        <section id="pr_4" data-nombre="boxer" data-marca="boxer" data-precio="10" data-codigo="A004" onclick="compra_producto(4)"><h1>BOXER CK</h1></section>
+        <section id="pr_5" data-nombre="campera" data-marca="zenit" data-precio="100" data-codigo="A005" onclick="compra_producto(5)"><h1>CAMPERA ZENIT</h1></section>
+        <section id="pr_6" data-nombre="musculosa" data-marca="nike" data-precio="15" data-codigo="A006" onclick="compra_producto(6)"><h1>MUSCULOSA NIKE</h1></section>
+    </div>
+
+    <button onclick="carrito_limpiar()">vaciar carrito</button>
+    <button onclick="mostrar_carrito()">mostrar carrito</button>
+
+    <div id="carrito"><p id="text_carrito"></p></div>
+</body>
+</html>
+
+<style>
+    #galeria_productos
+    {
+        display: grid;
+        position: relative;
+        grid-template-columns: repeat(3,15vw);
+        grid-template-rows: repeat(2,15vw);
+        grid-gap: 2px;
+        justify-content: center;
+    }
+
+    section
+    {
+        background: #333333;
+        display: flex;
+        justify-content: center;
+        line-height: 15vw;
+        cursor: pointer;
+        color: #e2e2e2;
+    }
+
+    section:hover 
+    {
+        background: #e2e2e2;
+        color: #333333;
+        transition: all 1s ease;
+        border: 1px solid #333333;
+    }
+
+    section h1, p
+    {
+        padding: 0;
+        margin: 0;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.4vw;
+    }
+
+    #carrito
+    {
+        width: 50vw;
+        height: auto;
+        background: #333333;
+        color: whitesmoke;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    #carrito p, button
+    {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 0.8vw;
+    }
+
+    #carrito p a:hover
+    {
+        cursor: pointer;
+        transition: all ease-in-out 0.5s;
+        color: yellow;
+    }
+
+    button
+    {
+        width: 150px;
+        height: 30px;
+        border: none;
+        background: #333333;
+        color: #e2e2e2;
+        cursor: pointer;
+    }
+
+    button:hover 
+    {
+        background: #e2e2e2;
+        border: #333333;
+        color: #333333;
+    }
+</style>
+
+<script>
+    let productos_compra = new Map();
+
+    function compra_producto(ide_item)
+    {
+        let elemento = document.getElementById("pr_" + ide_item);
+        let codigo_producto = elemento.getAttribute('data-codigo');
+        let new_producto = 
+        {
+            nombre: elemento.dataset.nombre,
+            marca: elemento.getAttribute('data-marca'),
+            precio: elemento.getAttribute('data-precio'),
+            cantidad: 0
+        }
+
+        verify_exist(codigo_producto)? new_producto.cantidad = parseInt(productos_compra.get(codigo_producto).cantidad)+1 : new_producto.cantidad=1;  
+        productos_compra.set(codigo_producto,new_producto);
+        mostrar_carrito();
+    }
+
+    function verify_exist(codigo){if(productos_compra.has(codigo)){return 1} return 0}
+
+    function mostrar_carrito()
+    {
+        document.getElementById("text_carrito").innerHTML = "";
+        let total= 0;
+
+        for(const [codigo, valor] of productos_compra.entries())
+        {
+            total+=valor.precio*valor.cantidad;
+            document.getElementById("text_carrito").innerHTML += "<a onclick='carrito_borrar(&#34;"+codigo+"&#34;)'>codigo: " + codigo + " | " + valor.cantidad + " " + valor.nombre + " " + valor.marca + ". Precio= " + valor.precio*valor.cantidad + "USD ["+valor.precio+"/u]<br></a>";
+        }
+        document.getElementById("text_carrito").innerHTML += "<br><br> TOTAL= " + total + "USD.";
+    }
+
+    function carrito_limpiar()
+    {
+        document.getElementById("text_carrito").innerHTML = "";
+        productos_compra.clear();
+    }
+
+    function carrito_borrar(key_compra)
+    { 
+        productos_compra.delete(key_compra);
+        mostrar_carrito();
+    }
+
+    
+</script>
