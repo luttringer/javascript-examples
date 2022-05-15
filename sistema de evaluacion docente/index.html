@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <input onchange="calcular_calificacion()" id="data-0" type="number" placeholder="numero de actividades publicadas en el curso">
+    <input onchange="calcular_calificacion()" id="data-1" type="number" placeholder="numero de pruebas publicadas en el curso">
+    <br>
+    <input onchange="calcular_calificacion()" id="data-2" type="number" placeholder="numero de actividades realizadas por el estudiante">
+    <input onchange="calcular_calificacion()" id="data-3" type="number" placeholder="numero de pruebas realizadas por el estudiante">
+
+    <input onchange="calcular_calificacion()" id="data-4" type="number" placeholder="promedio de actividades entregadas">
+    <input onchange="calcular_calificacion()" id="data-5" type="number" placeholder="promedio de pruebas de evaluacion entregadas">
+    <input onchange="calcular_calificacion()" id="data-6" type="number" placeholder="calificacion por orales">
+    <input onchange="calcular_calificacion()" id="data-7" type="number" placeholder="calificacion extra">
+    <br>
+    <p>aplica proyecto de egreso?</p>
+    <select onchange="calcular_calificacion()" id="data-8">
+        <option value="no">no</option>
+        <option value="si">si</option>
+    </select>
+    <input onchange="calcular_calificacion()" id="data-9" type="number" placeholder="calificacion actual en entregas de proyecto">
+
+    <br>
+    <br>
+    <input class="info" id="cal" type="number" placeholder="su calificacion" disabled>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <input class="info" type="text" disabled placeholder="orales suman 1 neto a calificacion si obtiene 10.">
+    <input class="info" type="text" disabled placeholder="extras suman 1 neto a calificacion si obtiene 10.">
+    <input class="info" type="text" disabled placeholder="pruebas de calificacion inciden en 7 de 12 puntos en calificacion.">
+    <input class="info" type="text" disabled placeholder="actividades inciden en 5 de 12 puntos en calificacion.">
+    <input class="info" type="text" disabled placeholder="proyecto incide en 8 de 12 puntos en calificacion, promedio total sin proyecto incide en 4 de 12 puntos.">
+    <input class="info" type="text" disabled placeholder="usted pierde 0.25 puntos en promedio de actividades por cada una que no entregue.">
+    <input class="info" type="text" disabled placeholder="usted pierde 1.5 puntos en promedio de pruebas por cada una que no entregue.">
+
+    <style>
+        input, select
+        {
+            display: block;
+            width: 900px;
+            height: 30px;
+            background: #333;
+            color: white;
+            border: none;
+            margin-bottom: 2px;
+            font-family: Consolas;
+            font-size: 0.8rem;
+            padding-left: 15px;
+            user-select: none; 
+        }
+
+        p
+        {
+            font-family: Consolas;
+            font-size: 0.8rem;
+            color: #333;
+        }
+
+        select
+        {
+            width: 355px;
+        }
+
+        button
+        {
+            width: 200px;
+            height: 30px;
+            background: purple;
+            color: white;
+            border: none;
+        }
+
+        input::placeholder, select::placeholder
+        {
+            color: #e3e3e3;
+        }
+
+        .info, .info::placeholder
+        {
+            background: #e3e3e3;
+            color:#333;
+        }
+    </style>
+</body>
+</html>
