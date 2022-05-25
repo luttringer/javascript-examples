@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch example</title>
+</head>
+<body>
+    <p>realizar consulta a archivo por GET: </p>
+    <p id="consulta_asincrona"> </p>
+
+    <script>
+        fetch('consulta_SQL.php?nombre=Christian')
+        .then( response => {
+            if(response.status == 200) {
+            return response.text();
+            } else {
+            throw "Respuesta incorrecta del servidor" 
+            }
+        })
+        .then( responseText => {
+            /* utilizo JSON para parsear/castear a un array los resultados del GET
+            let users = JSON.parse(responseText).results;
+            console.log('Este es el objeto de usuarios', users);
+            */
+            document.getElementById("consulta_asincrona").innerHTML = responseText;
+        })
+        .catch( err => {
+            console.log(err);
+        });
+    </script>
+</body>
+</html>

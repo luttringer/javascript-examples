@@ -1,0 +1,15 @@
+<script>
+    function primaria(texto, callback)
+    {
+        document.writeln("dos");
+        callback(texto);
+    }
+
+    function secundaria(texto)
+    {
+        document.writeln(texto);
+    }
+
+    primaria("uno", secundaria);
+    document.writeln("tres");
+</script>
